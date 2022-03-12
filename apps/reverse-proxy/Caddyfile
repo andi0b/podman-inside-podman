@@ -1,0 +1,8 @@
+
+http://app.sagdas.net {
+	respond "Hello Word"
+}
+
+http://blog-a.app.sagdas.net {
+	reverse_proxy wordpress:80
+}

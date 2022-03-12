@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  caddy:
+    networks:
+      - proxy
+    image: docker.io/library/caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
+
+networks:
+  proxy:
+    name: proxy
